@@ -27,6 +27,13 @@ const torus = new THREE.Mesh( geometry, material );
 // render
 scene.add(torus)
 
+const pointLight = new THREE.PointLight(0xffffff)
+pointLight.position.set(5,5,5)
+//pointLight.position.set(20,20,20)
+
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(pointLight, ambientLight)
+
     //renderer.render( scene, camera);
 
 function animate() {
@@ -35,7 +42,7 @@ function animate() {
     torus.rotation.x += 0.01;
     torus.rotation.y += 0.005;
     torus.rotation.z += 0.01;
-    
+
     renderer.render( scene, camera );
 
 }
