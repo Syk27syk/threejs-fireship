@@ -2,6 +2,7 @@ import './style.css'
 
 // import threejs
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // scene, camera, and renderer
 const scene = new THREE.Scene();
@@ -41,7 +42,7 @@ scene.add(pointLight, ambientLight)
 
 const lightHelper = new THREE.PointLightHelper(pointLight)
 const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(lightHelper)
+scene.add(lightHelper, gridHelper)
 
 
 // animate
