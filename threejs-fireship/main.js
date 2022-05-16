@@ -4,6 +4,8 @@ import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
+
+
 // scene, camera, and renderer
 const scene = new THREE.Scene();
 
@@ -20,6 +22,7 @@ camera.position.setZ(30);
 renderer.render ( scene, camera );
 
 
+
 // add our shape(s) //geometry //materials //mesh
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100)
@@ -29,8 +32,11 @@ const torus = new THREE.Mesh( geometry, material );
     //renderer.render( scene, camera);
 
 
+
 // render
 scene.add(torus)
+
+
 
 // lighting 
 const pointLight = new THREE.PointLight(0xffffff)
@@ -44,8 +50,11 @@ const lightHelper = new THREE.PointLightHelper(pointLight)
 const gridHelper = new THREE.GridHelper(200, 50);
 scene.add(lightHelper, gridHelper)
 
+
+
 // orbit controls
 const controls = new OrbitControls(camera, renderer.domElement);
+
 
 
 // stars
@@ -61,6 +70,38 @@ function addStar() {
 }
 
 Array(200).fill().forEach(addStar)
+
+
+
+// background //change: image link 
+const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+scene.background = spaceTexture;
+
+
+
+// texture wrapping //change texture and explore geometry
+const cubeTexture = new THREE.TextureLoader().load('favicon.png');
+
+const myCube = new THREE.Mesh(
+    new THREE.BoxGeometry(3,3,3),
+    new THREE.MeshBasicMaterial( { map: cubeTexture })
+)
+
+scene.add(myCube);
+
+
+
+// moon with multiple texture maps/normal map  //I'll make the moon exactly like he did
+const moonTexture = new THREE.TextureLoader().load('moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+
+const moon = new THREE.Mesh(
+    new THREE.SphereGeometry(3, 32, 32),
+    new THREE.MeshStandardMaterial( {
+        map: moonTexture,
+        normalMap: normalTexture
+    } )
+);
 
 
 // animate
