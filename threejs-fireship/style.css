@@ -1,4 +1,3 @@
-/*
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -7,12 +6,11 @@
   color: #2c3e50;
   margin-top: 60px;
 }
-*/
 canvas {
   position: fixed;
   background-color: black;
   top: 0;
   left: 0;
-  width: 500px;
-  height: 500px;
+  width: viewport;
+  height: 1000px;
 }
