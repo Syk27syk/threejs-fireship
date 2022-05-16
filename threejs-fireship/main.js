@@ -104,6 +104,29 @@ const moon = new THREE.Mesh(
 );
 
 
+
+// position 
+moon.position.z = 30;
+moon.position.setX(-10);
+
+function moveCamera() {
+
+    const t = document.body.getBoundingClientRect().top;
+    moon.rotation.x += 0.05;
+    moon.rotation.y += 0.075;
+    moon.rotation.z += 0.05;
+
+    myCube.rotation.y += 0.01;
+    myCube.rotation.z += 0.01;
+
+    camera.position.z = t * -0.01;
+    camera.position.x = t * -0.0002;
+    camera.position.y = t* -0.0002;
+}
+
+document.body.onscroll = moveCamera
+
+
 // animate
 function animate() {
     requestAnimationFrame( animate );
@@ -119,5 +142,4 @@ function animate() {
 }
 
 animate()
-
 

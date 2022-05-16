@@ -14,3 +14,7 @@ canvas {
   width: viewport;
   height: 1000px;
 }
+main {
+  position: absolute;
+  
+}
