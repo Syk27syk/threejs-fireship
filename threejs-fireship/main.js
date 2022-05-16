@@ -22,7 +22,7 @@ renderer.render ( scene, camera );
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100)
 const material = new THREE.MeshBasicMaterial({ color: 0xFF6347, wireframe: true });
-const torus = new THREE.Mesh( geometry, material);
+const torus = new THREE.Mesh( geometry, material );
 
 // render
 scene.add(torus)
@@ -36,4 +36,5 @@ function animate() {
 }
 
 animate()
+
 
